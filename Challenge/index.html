@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Challenge</title>
+</head>
+<body>
+	<script>
+		notes = [100, 50, 20, 10];	/*notes that are possible*/
+		counter = [0, 0, 0, 0];		/*counts how many of each note we need*/
+		notesLeft = [1, 2, 0, 0];	/*how many individual notes are left of each kind*/
+		totalLeft = 0;				/*maximum withdrawal possible - first set to 0 to initialize as number*/
+		amount = Math.floor(prompt("Please enter amount:"));	/*the amount we want to withdraw - automaticly floored to get an integer value*/
+
+		for (var i = 0; i < notesLeft.length; i++) {	/*calculates maximum withdrawal possible*/
+				totalLeft += notes[i] * notesLeft[i];
+			}
+
+
+		if (isNaN(amount)) {	/*if input is NaN*/
+			console.log("Please put in an integer!")
+		}
+		else if (amount % 10 != 0) {	/*if amount has ones or tens*/
+			console.log("There are no 1€ notes, bruh!")
+		} 
+		else if (totalLeft < amount) {	/*checks if amount is greater than total amount possible*/
+			console.log("Amount exceeding total amount possible! Maxiumum amount possible is " + totalLeft);
+		}
+		else {	/*counts notes*/
+			for (var i = 0; i < 4; i++) {
+				if (amount >= notes[i]) {
+					if (Math.floor(amount / notes[i]) > notesLeft[i]) {
+						console.log("Call bank!");
+						counter[i] = notesLeft[i];
+						amount = amount - (notesLeft[i] * notes[i]);
+					}
+					else {
+						counter[i] = Math.floor(amount / notes[i]);
+						amount = amount % notes[i];
+					}
+				}
+			}
+		}
+
+		if (amount == 0) {	/*outputs result*/
+			console.log(counter[0] + " 100€ note(s)," + counter[1] + " 50€ note(s)," + counter[2] + " 20€ note(s)," + counter[3] + " 10€ note(s),");
+		} 
+		else if (amount < totalLeft && (amount % 10) == 0) {	/*Outputs which €-notes need to be refilled*/
+			for (var i = 0; i < 4; i++) {
+				if (notesLeft[i] == 0) {
+					console.log("There are no more " + notes[i]+ "euro notes left. Please enter another amount");
+				}
+			}
+
+		}
+	</script>
+</body>
+</html>
