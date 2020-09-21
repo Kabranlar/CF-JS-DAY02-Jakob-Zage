@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic3</title>
+</head>
+<body>
+	
+
+
+
+	<main>
+
+		<div >
+			<h1>Todays Weather Forecast</h1>
+		</div>
+
+		<div id="weather"> </div>
+		
+
+
+
+
+
+
+	</main>
+
+<script>
+
+
+		var min = -5
+		var randomNum = Math.round(Math.random() * 35 + min)
+		var codeBlock  
+
+
+
+		console.log(randomNum)
+
+		if (randomNum <= 10) {
+			console.log("The weather is cold.")
+		} else
+			console.log("The weather is moderate")
+
+		if (randomNum <= 0) {
+			codeBlock = "<img src=\"https://media3.giphy.com/media/s4Bi420mMDRBK/200.gif\"> "
+
+		} else if (randomNum > 0 && randomNum < 20 ) {
+			codeBlock = "<img src=\"https://www.welt.de/img/gesundheit/mobile133543058/8561354387-ci16x9-w1200/Nebel-in-der-Karlsaue.jpg\"> "
+		} else {
+			codeBlock = "<img src=\"https://images-na.ssl-images-amazon.com/images/I/61nKNUDCXGL._SL1236_.jpg\"> "
+
+		}
+
+		document.getElementById('weather').innerHTML = codeBlock ;
+
+
+	</script>
+
+
+
+
+
+
+</body> 
+</html>
