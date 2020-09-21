@@ -2,6 +2,10 @@
 <html>
 <head>
 	<title>Basic3</title>
+
+	<link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
 	
@@ -10,12 +14,12 @@
 
 	<main>
 
-		<div >
+		<div class="headline" >
 			<h1>Todays Weather Forecast</h1>
 		</div>
 
 		<div id="weather"> </div>
-		
+		<h2 id="text"></h2>		
 
 
 
@@ -41,16 +45,20 @@
 			console.log("The weather is moderate")
 
 		if (randomNum <= 0) {
-			codeBlock = "<img src=\"https://media3.giphy.com/media/s4Bi420mMDRBK/200.gif\"> "
-
+			codeBlock = "<img src=\"https://media3.giphy.com/media/s4Bi420mMDRBK/200.gif\">"
+			text = "The weather is cold."
 		} else if (randomNum > 0 && randomNum < 20 ) {
 			codeBlock = "<img src=\"https://www.welt.de/img/gesundheit/mobile133543058/8561354387-ci16x9-w1200/Nebel-in-der-Karlsaue.jpg\"> "
+			text ="The weather is moderate"
 		} else {
 			codeBlock = "<img src=\"https://images-na.ssl-images-amazon.com/images/I/61nKNUDCXGL._SL1236_.jpg\"> "
+			text ="The weather is damn hot boi!"
+
 
 		}
 
 		document.getElementById('weather').innerHTML = codeBlock ;
+		document.getElementById('text').innerHTML = text ;
 
 
 	</script>
